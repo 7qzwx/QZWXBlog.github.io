@@ -1,6 +1,20 @@
 {
-    "title":"Blog Title",
-    "subTitle":"Blog description",
-    "avatarUrl":"https://github.githubassets.com/favicons/favicon.svg",
+    "title":"七种文学的博客",
+    "subTitle":"❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️",
+    "avatarUrl":"https://avatars.githubusercontent.com/u/162036223?v=4",
+    "homeUrl":"https://7qzwx.github.io/QZWXBlog.github.io",
+    "startSite":"07/24/2024",
+    "onePageListNum":15,
+    "commentLabelColor":"#006b75",
+    "yearColorList":["#bc4c00", "#0969da", "#1f883d", "#A333D0"],
+    "i18n":"CN",
+    "themeMode":"fix",
+    "dayTheme":"light_tritanopia",
+    "nightTheme":"github-light",
+    "bottomText":"❤️ 转载文章请注明出处，谢谢！❤️",
+    "showPostSource":0,
+    "script":"<script src='https://blog.liyifan.xyz/assets/backtotop.js'></script><script src='https://blog.liyifan.xyz/assets/lazyload.js'></script>",
+    "indexScript":"<script src='https://blog.liyifan.xyz/assets/NumPagination.js'></script><script src='https://blog.liyifan.xyz/assets/yifantheme_index.js'></script><script src='https://blog.liyifan.xyz/assets/rain.js'></script><script src='https://blog.liyifan.xyz/assets/live2d.js'></script>",
+    "allHead":"<script src='https://blog.liyifan.xyz/assets/GmeekBSZ.js'></script>",
     "GMEEK_VERSION":"last"
 }
