@@ -890,6 +890,79 @@ fun main() {
 在类前面加  open   关键字表示可被继承的父类，如
 
 ```
-
+//父类  Student
+open class Student(var name: String){
+    fun hello()=println("你好！我是$name")
+}
+//子类   Artstudent
+class Artstudent(name: String): Student(name){
+    fun draw()=println("我会画画")
+}
+fun main() {
+    var stu1=Artstudent("公孙离")
+    stu1.draw()
+    stu1.hello()
+}
 ```
+#### 抽象类
+
+实例代码
+
+```kotlin
+//使用abstract表示这个是一个抽象类
+abstract class Student {
+    abstract val type: String  //抽象类中可以存在抽象成员属性
+    abstract fun hello()   //抽象类中可以存在抽象函数
+  	//注意抽象的属性不能为private，不然子类就没法重写了
+}
+```
+
+当一个子类继承自抽象类时，必须要重写抽象类中定义的抽象属性和抽象函数：
+
+```kotlin
+class ArtStudent: Student() {
+    override val type: String = "美术生"
+    override fun hello() = println("原神，启动！")
+}
+```
+
+这是强制要求的，如果不进行重写将无法通过编译。
+
+#### 接口
+
+> 接口参数全部为抽象，不允许实例化
+
+用interface关键字定义接口
+
+```kotlin
+interface A {
+    val x: String  //接口中所有属性默认都是abstract的（可省略关键字）
+    fun sleep()   //接口中所有函数默认都是abstract的（可省略关键字）
+}
+interface B {
+    fun game()
+}
+class Student: A, B {   //接口的实现与类的继承一样，直接写到后面，多个接口用逗号隔开
+    override val x: String = "测试"   //跟抽象类一样，接口中的内容是必须要实现的
+    override fun sleep() = println("管他什么早八不早八的，睡舒服再说")
+    override fun game() = println("读大学就该玩游戏玩到爽")
+}
+```
+
+#### 类的扩展
+
+> 通过这种机制，我们可以将那些第三方类不具备的功能强行进行扩展，来方便我们的操作。
+
+```kotlin
+class Test {
+    fun hello() = println("你干嘛")
+}
+
+fun Test.hello() = println("哎哟")
+
+fun main() {
+    Test().hello()   //你干嘛
+}
+```
+
 
