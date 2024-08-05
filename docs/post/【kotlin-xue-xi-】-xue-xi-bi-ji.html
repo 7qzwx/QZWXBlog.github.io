@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-dark-theme="github-light" data-light-theme="light_tritanopia" lang="zh-CN">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href='https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/Primer/21.0.7/primer.css' rel='stylesheet' />
+    <script src='https://blog.liyifan.xyz/assets/GmeekBSZ.js'></script>
+    <link rel="icon" href="https://avatars.githubusercontent.com/u/162036223?v=4">
+<meta name="description" content="# kotlin学习
+
+## 基础篇
+
+- 
+![Clip_2024-08-04_13-59-45-1722751250661-2](https://github.com/user-attachments/assets/1632c57a-6f93-42ac-8b82-bdb9573235ca)
+
+- 程序入口
+- 注释：
+  普通注释直接//即可，多行注释只需要 `/*` +`回车` 即可。">
+<meta property="og:title" content="【kotlin学习】学习笔记">
+<meta property="og:description" content="# kotlin学习
+
+## 基础篇
+
+- 
+![Clip_2024-08-04_13-59-45-1722751250661-2](https://github.com/user-attachments/assets/1632c57a-6f93-42ac-8b82-bdb9573235ca)
+
+- 程序入口
+- 注释：
+  普通注释直接//即可，多行注释只需要 `/*` +`回车` 即可。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://7qzwx.github.io/QZWXBlog.github.io/post/%E3%80%90kotlin-xue-xi-%E3%80%91-xue-xi-bi-ji.html">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/162036223?v=4">
+<title>【kotlin学习】学习笔记</title>
+<link href="//unpkg.com/@wooorm/starry-night@2.1.1/style/both.css" rel="stylesheet" />
+
+
+</head>
+<style>
+body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;padding: 45px;font-size: 16px;font-family: sans-serif;line-height: 1.25;}
+#header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
+#footer {margin-top:64px; text-align: center;font-size: small;}
+
+</style>
+
+<style>
+.postTitle{margin: auto 0;font-size:40px;font-weight:bold;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
+#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
+#postBody hr{height:2px;}
+#cmButton{height:48px;margin-top:48px;}
+#comments{margin-top:64px;}
+.g-emoji{font-size:24px;}
+@media (max-width: 600px) {
+    body {padding: 8px;}
+    .postTitle{font-size:24px;}
+}
+</style>
+
+
+
+
+<body>
+    <div id="header">
+<h1 class="postTitle">【kotlin学习】学习笔记</h1>
+<div class="title-right">
+    <a href="https://7qzwx.github.io/QZWXBlog.github.io" id="buttonHome" class="btn btn-invisible circle" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+
+    <a class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题"style="display:none;">
+        <svg class="octicon" width="16" height="16" >
+            <path id="themeSwitch" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+
+</div>
+</div>
+    <div id="content">
+<div class="markdown-body" id="postBody"><h1>kotlin学习</h1>
+<h2>基础篇</h2>
+<ul>
+<li></li>
+</ul>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/1632c57a-6f93-42ac-8b82-bdb9573235ca"><img src="https://github.com/user-attachments/assets/1632c57a-6f93-42ac-8b82-bdb9573235ca" alt="Clip_2024-08-04_13-59-45-1722751250661-2" style="max-width: 100%;"></a></p>
+<ul>
+<li>程序入口</li>
+<li>注释：<br>
+普通注释直接//即可，多行注释只需要 <code class="notranslate">/*</code> +<code class="notranslate">回车</code> 即可。</li>
+</ul>
+<h4>1.变量与基础类型</h4>
+<h5>变量</h5>
+<p>可变变量：var                         不可变量：val（一但定义值后就不可修改）</p>
+<div class="highlight highlight-source-kotlin"><pre class="notranslate"><span class="pl-k">fun</span> <span class="pl-en">main</span>() {
+   <span class="pl-k">var</span> <span class="pl-en">X</span> <span class="pl-k">:</span>int<span class="pl-k">=</span><span class="pl-c1">7</span>
+    <span class="pl-c1">println</span>(<span class="pl-en">X</span>)
+}</pre></div>
+<h5>数字类型</h5>
+<ul>
+<li>
+<p>整数默认使用  Int  ，非常大的整数可以用  Long；</p>
+</li>
+<li>
+<p>小数默认使用 double ，如果用  float 需要后面加 f，如：</p>
+<div class="highlight highlight-source-kotlin"><pre class="notranslate"><span class="pl-k">val</span> e <span class="pl-k">=</span> <span class="pl-c1">2.7182818284</span> <span class="pl-c"><span class="pl-c">//</span> Double类型的数值</span>
+<span class="pl-k">val</span> e<span class="pl-k">:</span> <span class="pl-c1">Float</span> <span class="pl-k">=</span> <span class="pl-c1">2.7182818284f</span> <span class="pl-c"><span class="pl-c">//</span> 这里表示为Float会导致精度折损，得到2.7182817</span></pre></div>
+</li>
+<li>
+<p>a++跟++a的联系与区别：</p>
+</li>
+</ul>
+<p>​		比如 a=10, 运算的结果都是11，但是区别如下：</p>
+<div class="highlight highlight-source-kotlin"><pre class="notranslate"><span class="pl-k">fun</span> <span class="pl-en">main</span>() {
+    <span class="pl-k">var</span> a <span class="pl-k">=</span> <span class="pl-c1">10</span>
+    <span class="pl-c1">println</span>(a<span class="pl-k">++</span>)   <span class="pl-c"><span class="pl-c">//</span>这里++在后面，打印a的值依然是10，但是结束之后a的值就变成11了</span>
+    <span class="pl-c1">println</span>(<span class="pl-k">++</span>a)   <span class="pl-c"><span class="pl-c">//</span>这里++在前面，打印a的值是这里先自增之后的结果，就是12了</span>
+}</pre></div>
+<ul>
+<li>
+<p>布尔类型：</p>
+<p>布尔类型（boolean）：<code class="notranslate">true</code> 或者  <code class="notranslate">false</code></p>
+<p>如：     【打印结果为false     true   true】</p>
+<div class="highlight highlight-source-kotlin"><pre class="notranslate"><span class="pl-k">fun</span> <span class="pl-en">main</span>() {
+    <span class="pl-k">val</span> a <span class="pl-k">=</span> <span class="pl-c1">10</span>
+    <span class="pl-k">val</span> b <span class="pl-k">=</span> <span class="pl-c1">8</span>
+    <span class="pl-c1">println</span>(a <span class="pl-k">==</span> b)  <span class="pl-c"><span class="pl-c">//</span>判断a是否等于b（注意等号要写两个，因为单等号为赋值运算）</span>
+    <span class="pl-c1">println</span>(a <span class="pl-k">&gt;=</span> b)   <span class="pl-c"><span class="pl-c">//</span>判断a是否大于等于b</span>
+  	<span class="pl-k">val</span> c<span class="pl-k">:</span> <span class="pl-c1">Boolean</span> <span class="pl-k">=</span> a <span class="pl-k">!=</span> b   <span class="pl-c"><span class="pl-c">//</span>判断a是否不等于b并将结果赋值给变量c</span>
+    println（c）
+}</pre></div>
+<p>我们为了快速判断某个数是否在一个区间内，可以直接使用 <code class="notranslate">a..b</code> 来表示一个数学上<code class="notranslate">[a, b]</code>这样的闭区间,如：   【打印结果为true】</p>
+<div class="highlight highlight-source-kotlin"><pre class="notranslate"><span class="pl-k">fun</span> <span class="pl-en">main</span>() {
+    <span class="pl-k">var</span> a<span class="pl-k">=</span><span class="pl-c1">10</span>
+    <span class="pl-c1">println</span>(a <span class="pl-k">in</span> <span class="pl-c1">1</span><span class="pl-k">..</span><span class="pl-c1">20</span>)
+}</pre></div>
+<p>拥有逻辑运算符：</p>
+<ul>
+<li><code class="notranslate">||</code>– 逻辑或运算：“或者”  如A||B表示A或者B</li>
+<li><code class="notranslate">&amp;&amp;</code>– 逻辑与运算：“并且”  如A&amp;&amp;B表示A并且B</li>
+<li><code class="notranslate">!</code>– 取反运算</li>
+</ul>
+<div class="highlight highlight-source-kotlin"><pre class="notranslate"><span class="pl-k">fun</span> <span class="pl-en">main</span>() {
+    <span class="pl-k">val</span> a <span class="pl-k">=</span> <span class="pl-c1">10</span>
+    <span class="pl-k">val</span> b <span class="pl-k">=</span> <span class="pl-c1">0</span>
+    <span class="pl-c1">println</span>(<span class="pl-c1">100</span> <span class="pl-k">&gt;=</span> a <span class="pl-k">&amp;&amp;</span> b <span class="pl-k">&gt;=</span> <span class="pl-c1">60</span>)  <span class="pl-c"><span class="pl-c">//</span>我们可以使用与运算符连接两个判断表达式，只有两边都为true结果才是true</span>
+    <span class="pl-c1">println</span>(<span class="pl-c1">100</span> <span class="pl-k">&gt;=</span> a <span class="pl-k">||</span> b <span class="pl-k">&gt;=</span> <span class="pl-c1">60</span>)  <span class="pl-c"><span class="pl-c">//</span>我们可以使用或运算符连接两个判断表达式，只要两边任意一个为true结果就是true</span>
+}</pre></div>
+<p>取反！如下</p>
+<div class="highlight highlight-source-kotlin"><pre class="notranslate"><span class="pl-k">fun</span> <span class="pl-en">main</span>() {
+    <span class="pl-k">val</span> a <span class="pl-k">=</span> <span class="pl-c1">10</span>
+    <span class="pl-k">val</span> b <span class="pl-k">=</span> <span class="pl-c1">20</span>
+    <span class="pl-k">val</span> c <span class="pl-k">=</span> a <span class="pl-k">&gt;</span> b   <span class="pl-c"><span class="pl-c">//</span>这里很明显c应该为false</span>
+    <span class="pl-c1">println</span>(<span class="pl-k">!</span>c)   <span class="pl-c"><span class="pl-c">//</span>这里进行了取反操作并打印，那么结果就是true了</span>
+}</pre></div>
+</li>
+</ul>
+<h5>字符类型</h5>
+<ul>
+<li>
+<p>单字符 char  ：可以打印单个字符，如 ‘Q’  ‘,’  ‘2’ 等；</p>
+<p>打印符号：（推荐直接写符号）<br>
+<a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/8a4a9a7c-327f-4245-a2e7-ed6f34204d4e"><img src="https://github.com/user-attachments/assets/8a4a9a7c-327f-4245-a2e7-ed6f34204d4e" alt="ugem2scKxyX7wJL-1722757750442-5" style="max-width: 100%;"></a></p>
+</li>
+</ul>
+<div class="highlight highlight-source-kotlin"><pre class="notranslate"><span class="pl-k">fun</span> <span class="pl-en">main</span>() {
+    <span class="pl-k">val</span> d <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>★<span class="pl-pds">'</span></span>    <span class="pl-c"><span class="pl-c">//</span>可以直接打符号进去！</span>
+    <span class="pl-k">val</span> c <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\u2713</span><span class="pl-pds">'</span></span>   <span class="pl-c"><span class="pl-c">//</span>符号✓对应的Unicode编码为10003，这里需要转换为16进制表示，结果为0x2713</span>
+    <span class="pl-c1">println</span>(c)
+}</pre></div>
+<ul>
+<li>字符串  string    ：可以打印一句话等</li>
+</ul>
+<p>​		转义类型：</p>
+<p>​		<code class="notranslate">\n</code> – 换行（LF）</p>
+<p>​		<code class="notranslate">\t</code> – 选项卡</p>
+<p>​		<code class="notranslate">\b</code> – 退格</p>
+<p>​		<code class="notranslate">\r</code> – 回车（CR）</p>
+<p>​		<code class="notranslate">\'</code> – 单引号</p>
+<p>​		<code class="notranslate">\"</code> – 双引号</p>
+<p>​		<code class="notranslate">\\</code> –反斜杠</p>
+<p>​		<code class="notranslate">\$</code> – 美元符号</p>
+<p>使用：</p>
+<div class="highlight highlight-source-kotlin"><pre class="notranslate"><span class="pl-k">fun</span> <span class="pl-en">main</span>() {
+   <span class="pl-k">var</span> tex <span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>你好<span class="pl-cce">\n</span><span class="pl-pds">"</span></span> <span class="pl-k">+</span><span class="pl-s"><span class="pl-pds">"</span>这里开始<span class="pl-pds">"</span></span>
+   <span class="pl-c1">println</span>(tex)
+}</pre></div>
+<p>打印结果：<br>
+<a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/c7c4c5e0-6651-4501-b814-d5dfaa4fa86e"><img src="https://github.com/user-attachments/assets/c7c4c5e0-6651-4501-b814-d5dfaa4fa86e" alt="Clip_2024-08-04_15-58-47-1722758331756-8" style="max-width: 100%;"></a></p>
+<p>如果要打印多行文字，用“”“  文本  ”“”，但是转义符号无效（即不能用换行符号）</p>
+<div class="highlight highlight-source-kotlin"><pre class="notranslate"><span class="pl-k">fun</span> <span class="pl-en">main</span>() {
+   <span class="pl-k">var</span> tex <span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"""</span></span>
+<span class="pl-s">      你好！</span>
+<span class="pl-s">      这里是七种文学！</span>
+<span class="pl-s">      我在测试\n多行文字</span>
+<span class="pl-s">   <span class="pl-pds">"""</span></span>
+   <span class="pl-c1">println</span>(tex)
+}</pre></div>
+<p>打印结果：<br>
+<a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/f06682f4-614b-4a07-85d4-9dce4c19982a"><img src="https://github.com/user-attachments/assets/f06682f4-614b-4a07-85d4-9dce4c19982a" alt="Clip_2024-08-04_16-02-28-1722758553432-11" style="max-width: 100%;"></a></p>
+<p>也可以这样使用：</p>
+<div class="highlight highlight-source-kotlin"><pre class="notranslate"><span class="pl-k">fun</span> <span class="pl-en">main</span>() {
+   <span class="pl-k">val</span> a <span class="pl-k">=</span> <span class="pl-c1">10</span>
+   <span class="pl-k">val</span> text1 <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>这是拼接的值<span class="pl-e">$a</span><span class="pl-pds">"</span></span>  <span class="pl-c"><span class="pl-c">//</span>这里的$为模版表达式，可以直接将后面跟着的变量或表达式以字符串形式替换到这个位置</span>
+   <span class="pl-k">val</span> text2 <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span><span class="pl-e">$a</span> 这是拼接的值<span class="pl-pds">"</span></span> <span class="pl-c"><span class="pl-c">//</span>注意这里$a之后必须空格，否则会把后面的整个字符串认为这个变量的名字</span>
+   <span class="pl-c1">println</span>(text1)
+   <span class="pl-c1">println</span>(text2)
+}</pre></div>
+<h4>2.逻辑语句</h4>
+<h5>IF语句</h5>
+<p>简单嵌套：</p>
+<div class="highlight highlight-source-kotlin"><pre class="notranslate"><span class="pl-k">fun</span> <span class="pl-en">main</span>() {
+    <span class="pl-k">val</span> score <span class="pl-k">=</span> <span class="pl-c1">12</span>
+    <span class="pl-k">if</span> (score <span class="pl-k">&lt;</span> <span class="pl-c1">60</span>) {   <span class="pl-c"><span class="pl-c">//</span>先判断不及格</span>
+        <span class="pl-k">if</span> (score <span class="pl-k">&gt;</span> <span class="pl-c1">30</span>) <span class="pl-c"><span class="pl-c">//</span>在内层再嵌套一个if语句进行进一步的判断</span>
+            <span class="pl-c1">println</span>(<span class="pl-s"><span class="pl-pds">"</span>分数在30-60之间<span class="pl-pds">"</span></span>) 
+        <span class="pl-k">else</span> 
+            <span class="pl-c1">println</span>(<span class="pl-s"><span class="pl-pds">"</span>分数&lt;30<span class="pl-pds">"</span></span>)
+    }
+}</pre></div>
+<p>如果简单语句只有一行，可以不用  { }  包裹</p>
+<div class="highlight highlight-source-kotlin"><pre class="notranslate"><span class="pl-k">fun</span> <span class="pl-en">main</span>() {
+    <span class="pl-k">val</span> score <span class="pl-k">=</span> <span class="pl-c1">2</span>
+  	<span class="pl-c"><span class="pl-c">//</span>这里判断socre是否大于60，是就得到Yes，否就得到No，并且可以直接赋值给变量</span>
+    <span class="pl-k">val</span> res <span class="pl-k">=</span> <span class="pl-k">if</span> (score <span class="pl-k">&gt;</span> <span class="pl-c1">60</span>) <span class="pl-s"><span class="pl-pds">"</span>Yes<span class="pl-pds">"</span></span> <span class="pl-k">else</span> <span class="pl-s"><span class="pl-pds">"</span>No<span class="pl-pds">"</span></span>
+}</pre></div>
+<p>对于多行，默认最后一行为返回值</p>
+<div class="highlight highlight-source-kotlin"><pre class="notranslate"><span class="pl-k">fun</span> <span class="pl-en">main</span>() {
+    <span class="pl-k">val</span> score <span class="pl-k">=</span> <span class="pl-c1">2</span>
+    <span class="pl-k">val</span> res <span class="pl-k">=</span> <span class="pl-k">if</span> (score <span class="pl-k">&gt;</span> <span class="pl-c1">60</span>) {
+        <span class="pl-c1">println</span>(<span class="pl-s"><span class="pl-pds">"</span>不错啊期末没挂科<span class="pl-pds">"</span></span>)
+        <span class="pl-s"><span class="pl-pds">"</span>Yes<span class="pl-pds">"</span></span>   <span class="pl-c"><span class="pl-c">//</span>代码块默认最后一行作为返回结果</span>
+    } <span class="pl-k">else</span> {		<span class="pl-c"><span class="pl-c">//</span>注意这里必须要有else作为返回值</span>
+        <span class="pl-c1">println</span>(<span class="pl-s"><span class="pl-pds">"</span>不会有人Java期末还要挂科吧<span class="pl-pds">"</span></span>)
+        <span class="pl-s"><span class="pl-pds">"</span>No<span class="pl-pds">"</span></span>     
+    }
+}</pre></div>
+<h5>When选择语句    【相当于Switch】</h5>
+<p>基本结构：（需要考虑所有情况，否则必须有else）</p>
+<div class="highlight highlight-source-kotlin"><pre class="notranslate"><span class="pl-k">when</span> (目标) {
+    匹配值<span class="pl-c1">1</span> <span class="pl-k">-&gt;</span> 代码<span class="pl-k">..</span>.   <span class="pl-c"><span class="pl-c">//</span>我们需要传入一个目标，比如变量，或是计算表达式等</span>
+    匹配值<span class="pl-c1">2</span> <span class="pl-k">-&gt;</span> 代码<span class="pl-k">..</span>.   <span class="pl-c"><span class="pl-c">//</span>如果目标的值等于我们这里给定的匹配值，那么就执行case后面的代码</span>
+    <span class="pl-k">else</span> <span class="pl-k">-&gt;</span> {
+        代码<span class="pl-k">..</span>.    <span class="pl-c"><span class="pl-c">//</span>如果以上条件都不满足，就进入else中（可以没有），类似于之前的if-elseif-else</span>
+    }
+}</pre></div>
+<p>例子：  （打印结果为：去尖子班！准备冲刺985大学！）</p>
+<div class="highlight highlight-source-kotlin"><pre class="notranslate"><span class="pl-k">fun</span> <span class="pl-en">main</span>() {
+    <span class="pl-k">val</span> c <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>A<span class="pl-pds">'</span></span>
+    <span class="pl-k">when</span> (c) {
+        <span class="pl-s"><span class="pl-pds">'</span>A<span class="pl-pds">'</span></span> <span class="pl-k">-&gt;</span> <span class="pl-c1">println</span>(<span class="pl-s"><span class="pl-pds">"</span>去尖子班！准备冲刺985大学！<span class="pl-pds">"</span></span>)
+        <span class="pl-s"><span class="pl-pds">'</span>B<span class="pl-pds">'</span></span> <span class="pl-k">-&gt;</span> <span class="pl-c1">println</span>(<span class="pl-s"><span class="pl-pds">"</span>去平行班！准备冲刺一本！<span class="pl-pds">"</span></span>)
+        <span class="pl-s"><span class="pl-pds">'</span>C<span class="pl-pds">'</span></span> <span class="pl-k">-&gt;</span> <span class="pl-c1">println</span>(<span class="pl-s"><span class="pl-pds">"</span>去职高深造。<span class="pl-pds">"</span></span>)
+    }
+}</pre></div>
+<h5>While循环语句</h5>
+<p>​	<em>for语句的简单版本</em></p>
+<p>基本结构：</p>
+<div class="highlight highlight-source-kotlin"><pre class="notranslate"><span class="pl-k">while</span>(循环条件) 循环体;</pre></div>
+<p>例子：（运行结果为：100  50  25  12  6  3  1）</p>
+<div class="highlight highlight-source-kotlin"><pre class="notranslate"><span class="pl-k">fun</span> <span class="pl-en">main</span>() {
+    <span class="pl-k">var</span> i <span class="pl-k">=</span> <span class="pl-c1">100</span> <span class="pl-c"><span class="pl-c">//</span>比如现在我们想看看i不断除以2得到的结果会是什么，但是循环次数我们并不明</span>
+    <span class="pl-k">while</span> (i <span class="pl-k">&gt;</span> <span class="pl-c1">0</span>) {   <span class="pl-c"><span class="pl-c">//</span>现在唯一知道的是循环条件，只要大于0那么就可以继续除</span>
+        <span class="pl-c1">println</span>(i)
+        i <span class="pl-k">/</span><span class="pl-k">=</span> <span class="pl-c1">2</span> <span class="pl-c"><span class="pl-c">//</span>每次循环都除以2</span>
+    }
+}</pre></div>
+<p>也支持break打断：（运行结果为：100  50  25  12）</p>
+<div class="highlight highlight-source-kotlin"><pre class="notranslate"><span class="pl-k">fun</span> <span class="pl-en">main</span>() {
+    <span class="pl-k">var</span> i <span class="pl-k">=</span> <span class="pl-c1">100</span>
+    <span class="pl-k">while</span> (i <span class="pl-k">&gt;</span> <span class="pl-c1">0</span>) {
+        <span class="pl-k">if</span> (i <span class="pl-k">&lt;</span> <span class="pl-c1">10</span>) <span class="pl-k">break</span>
+        <span class="pl-c1">println</span>(i)
+        i <span class="pl-k">/</span><span class="pl-k">=</span> <span class="pl-c1">2</span>
+    }
+}</pre></div>
+<p>可以先执行再判断：（运行结果为0  1   3  4  5  6  7  8  9）</p>
+<div class="highlight highlight-source-kotlin"><pre class="notranslate"><span class="pl-k">fun</span> <span class="pl-en">main</span>() {
+    <span class="pl-k">var</span> i <span class="pl-k">=</span> <span class="pl-c1">0</span> <span class="pl-c"><span class="pl-c">//</span>比如现在我们想看看i不断除以2得到的结果会是什么，但是循环次数我们并不明确</span>
+    <span class="pl-k">do</span> {  <span class="pl-c"><span class="pl-c">//</span>无论满不满足循环条件，先执行循环体里面的内容</span>
+        <span class="pl-c1">println</span>(<span class="pl-s"><span class="pl-pds">"</span> <span class="pl-e">$i</span> <span class="pl-pds">"</span></span>)
+        i<span class="pl-k">++</span>
+    } <span class="pl-k">while</span> (i <span class="pl-k">&lt;</span> <span class="pl-c1">10</span>) <span class="pl-c"><span class="pl-c">//</span>再做判断，如果判断成功，开启下一轮循环，否则结束</span>
+}</pre></div>
+<h5>For循环语句</h5>
+<p>continue：跳过       break：终止</p>
+<p>基本机构：</p>
+<div class="highlight highlight-source-kotlin"><pre class="notranslate"><span class="pl-k">for</span> (遍历出来的单个目标变量 <span class="pl-k">in</span> 可遍历目标) 循环体</pre></div>
+<p>这里的可遍历目标有很多，比如：</p>
+<ul>
+<li>数组</li>
+<li>区间</li>
+<li>任何实现了运算符重载函数iterator的类</li>
+</ul>
+<p>例子：</p>
+<div class="highlight highlight-source-kotlin"><pre class="notranslate"><span class="pl-k">fun</span> <span class="pl-en">main</span>(){
+   <span class="pl-k">val</span> <span class="pl-en">A</span><span class="pl-k">=</span><span class="pl-c1">1</span><span class="pl-k">..</span><span class="pl-c1">5</span>
+   <span class="pl-k">for</span> (i <span class="pl-k">in</span> <span class="pl-en">A</span>) <span class="pl-c1">println</span>(<span class="pl-s"><span class="pl-pds">"</span>这是第 <span class="pl-e">$i</span> 次<span class="pl-pds">"</span></span>)    <span class="pl-c"><span class="pl-c">//</span>这里的println可以用 { }包裹，也可以不用，因为是单行简单语句</span>
+}   <span class="pl-c"><span class="pl-c">//</span>注意这里的i 是一个局部变量，只能在for语句中有用，在main中用不了</span></pre></div>
+<p>运行结果：</p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/8459fcac-cb7a-432f-981d-e0c1cdca681c"><img src="https://github.com/user-attachments/assets/8459fcac-cb7a-432f-981d-e0c1cdca681c" alt="Clip_2024-08-04_16-36-34-1722760597070-14" style="max-width: 100%;"></a></p>
+<p>也可以简单嵌套：</p>
+<div class="highlight highlight-source-kotlin"><pre class="notranslate"><span class="pl-k">fun</span> <span class="pl-en">main</span>() {
+    <span class="pl-k">for</span> (i <span class="pl-k">in</span> <span class="pl-c1">0</span><span class="pl-k">..</span><span class="pl-c1">2</span>)  <span class="pl-c"><span class="pl-c">//</span>外层循环执行3次</span>
+        <span class="pl-k">for</span> (j <span class="pl-k">in</span> <span class="pl-c1">0</span><span class="pl-k">..</span><span class="pl-c1">2</span>)  <span class="pl-c"><span class="pl-c">//</span>内层循环也执行3次</span>
+            <span class="pl-c1">println</span>(<span class="pl-s"><span class="pl-pds">"</span>外层<span class="pl-e">$i</span>，内层<span class="pl-e">$j</span><span class="pl-pds">"</span></span>)
+}</pre></div>
+<p>输出结果：</p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/3a58a9de-e02d-4508-8cec-13a5f445e3b0"><img src="https://github.com/user-attachments/assets/3a58a9de-e02d-4508-8cec-13a5f445e3b0" alt="Clip_2024-08-04_16-45-59-1722761161834-17" style="max-width: 100%;"></a></p>
+<p>​	跳过某轮次continue：</p>
+<div class="highlight highlight-source-kotlin"><pre class="notranslate"><span class="pl-k">fun</span> <span class="pl-en">main</span>(){
+<span class="pl-k">for</span> (i <span class="pl-k">in</span> <span class="pl-c1">0</span><span class="pl-k">..</span><span class="pl-c1">2</span>) {
+    <span class="pl-k">if</span> (i <span class="pl-k">==</span> <span class="pl-c1">1</span>) <span class="pl-k">continue</span>  <span class="pl-c"><span class="pl-c">//</span>比如我们希望当i等于1时跳过这一轮，不执行后面的打印</span>
+    <span class="pl-c1">println</span>(<span class="pl-s"><span class="pl-pds">"</span>在这么冷的天<span class="pl-pds">"</span></span>)
+    <span class="pl-c1">println</span>(<span class="pl-s"><span class="pl-pds">"</span>当前i的值为：<span class="pl-e">$i</span><span class="pl-pds">"</span></span>)
+   }
+}</pre></div>
+<p>打印结果：</p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/6d2fb08b-8e1b-4f57-8586-f9c557dd5fcc"><img src="https://github.com/user-attachments/assets/6d2fb08b-8e1b-4f57-8586-f9c557dd5fcc" alt="Clip_2024-08-04_16-48-55-1722761339420-20" style="max-width: 100%;"></a></p>
+<p>提前终止break：</p>
+<div class="highlight highlight-source-kotlin"><pre class="notranslate"><span class="pl-k">fun</span> <span class="pl-en">main</span>() {
+    <span class="pl-k">for</span> (i <span class="pl-k">in</span> <span class="pl-c1">0</span><span class="pl-k">..</span><span class="pl-c1">2</span>) {
+        <span class="pl-k">if</span> (i <span class="pl-k">==</span> <span class="pl-c1">1</span>) <span class="pl-k">break</span> <span class="pl-c"><span class="pl-c">//</span>我们希望当i等于1时提前结束</span>
+        <span class="pl-c1">println</span>(<span class="pl-s"><span class="pl-pds">"</span>伞兵一号卢本伟准备就绪！<span class="pl-pds">"</span></span>)
+        <span class="pl-c1">println</span>(<span class="pl-s"><span class="pl-pds">"</span>当前i的值为：<span class="pl-e">$i</span><span class="pl-pds">"</span></span>)
+    }
+}</pre></div>
+<p>打印结果：</p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/a24286f1-2a75-44bd-8466-bf3e59911149"><img src="https://github.com/user-attachments/assets/a24286f1-2a75-44bd-8466-bf3e59911149" alt="Clip_2024-08-04_16-50-20-1722761427759-23" style="max-width: 100%;"></a></p>
+<p>可以用标记来直接作用整个地方</p>
+<p>不用标记：</p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/8941218d-0ced-47be-ba8c-2b15461987f2"><img src="https://github.com/user-attachments/assets/8941218d-0ced-47be-ba8c-2b15461987f2" alt="Clip_2024-08-04_17-00-35-1722762043703-29" style="max-width: 100%;"></a></p>
+<p>用标记：</p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/4a6858c1-920a-452e-8297-fb2128912020"><img src="https://github.com/user-attachments/assets/4a6858c1-920a-452e-8297-fb2128912020" alt="Clip_2024-08-04_17-04-49" style="max-width: 100%;"></a></p>
+<h2>中级篇</h2>
+<h3>1.函数</h3>
+<blockquote>
+<p>当一些代码需要重复使用时候，可以写成一个函数，在需要用的地方插入函数即可。可理解为“组件”</p>
+</blockquote>
+<ul>
+<li>创建函数</li>
+</ul>
+<div class="highlight highlight-source-kotlin"><pre class="notranslate"><span class="pl-k">fun</span> 函数名称([函数参数...]): 返回值类型 {
+    <span class="pl-c"><span class="pl-c">//</span>函数体</span>
+}</pre></div>
+<p>​	如果不需要返回值，返回值类型可以不用写（默认为unit，类似Java的void，返回值为空）；</p>
+<p>​</p>
+<p>例子：（由简单到复杂）<br>
+<a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/05daea93-550e-486f-8f92-720fb29adb99"><img src="https://github.com/user-attachments/assets/05daea93-550e-486f-8f92-720fb29adb99" alt="Clip_2024-08-04_17-35-59" style="max-width: 100%;"></a></p>
+<p>下面一张图片中  <strong>A(小括号内的自定义参数)</strong>  就是<strong>形参</strong>， <strong>实际调用函数时候传入的参数   “hello”    就是</strong>实参**。</p>
+<p>【形参就是告诉函数你创建的函数，需要传入一个什么类型的数据；</p>
+<p>​    实参则是调用函数时候传入的数据】</p>
+<p><em>调用有形参的函数必须填写实参，否则会报错！如果设置了形参默认值可以不写实参</em></p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/0dd56920-1321-48aa-8ec6-985cae44268e"><img src="https://github.com/user-attachments/assets/0dd56920-1321-48aa-8ec6-985cae44268e" alt="Clip_2024-08-04_17-46-15" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/e968e39f-31c5-4e3d-880a-14a4fae6225f"><img src="https://github.com/user-attachments/assets/e968e39f-31c5-4e3d-880a-14a4fae6225f" alt="Clip_2024-08-04_18-10-13" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/737b854a-7343-4aef-bbe7-db3be9aebe16"><img src="https://github.com/user-attachments/assets/737b854a-7343-4aef-bbe7-db3be9aebe16" alt="Clip_2024-08-04_18-03-04" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/22b159b3-7e12-4b38-93ec-3d91bb844c31"><img src="https://github.com/user-attachments/assets/22b159b3-7e12-4b38-93ec-3d91bb844c31" alt="Clip_2024-08-04_18-17-32" style="max-width: 100%;"></a></p>
+<p>编写同名但不同参数，叫函数的重载</p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/cb03276b-f2e4-492d-86a4-15429ac9cfbc"><img src="https://github.com/user-attachments/assets/cb03276b-f2e4-492d-86a4-15429ac9cfbc" alt="Clip_2024-08-04_18-26-33" style="max-width: 100%;"></a></p>
+<h4>2.递归函数</h4>
+<blockquote>
+<p>就是函数本身调用本身函数，但是需要有终止代码</p>
+<p>合理利用递归函数，有利于处理 循环问题</p>
+</blockquote>
+<p>例子：</p>
+<div class="highlight highlight-source-kotlin"><pre class="notranslate"><span class="pl-k">fun</span> <span class="pl-en">main</span>() {
+    <span class="pl-c1">println</span>(test(<span class="pl-c1">5</span>))  <span class="pl-c"><span class="pl-c">//</span>计算0-5的和</span>
+}
+
+<span class="pl-c"><span class="pl-c">//</span>这个函数实现了计算0-n的和的功能</span>
+<span class="pl-k">fun</span> <span class="pl-en">test</span>(<span class="pl-smi">n</span><span class="pl-k">:</span> <span class="pl-c1">Int</span>): <span class="pl-c1">Int</span>{
+    <span class="pl-k">if</span>(n <span class="pl-k">&lt;=</span> <span class="pl-c1">0</span>) <span class="pl-k">return</span> <span class="pl-c1">0</span>  <span class="pl-c"><span class="pl-c">//</span>当n等于0的时候就不再向下，而是直接返回0</span>
+    <span class="pl-k">return</span> n <span class="pl-k">+</span> test(n <span class="pl-k">-</span> <span class="pl-c1">1</span>)  <span class="pl-c"><span class="pl-c">//</span>n不为0就返回当前的n加上test参数n-1的和</span>
+}</pre></div>
+<h4>3.高阶函数</h4>
+<blockquote>
+<p>正是得益于函数可以作为变量的值进行存储，因此，如果一个函数接收另一个函数作为参数，或者返回值的类型就是一个函数，那么该函数称为高阶函数。</p>
+</blockquote>
+<h5>【上】</h5>
+<p>要声明函数类型，需要按照以下规则：</p>
+<ul>
+<li>所有函数类型都有一个括号，并在括号中填写参数类型列表和一个返回类型，比如：<code class="notranslate">(A, B) -&gt; C </code> 表示一个函数类型，该类型表示接受类型<code class="notranslate">A</code>和<code class="notranslate">B</code>的两个参数并返回类型<code class="notranslate">C</code>的值的函数。参数类型列表可为空的，比如<code class="notranslate">() -&gt; A</code>，注意，即使是<code class="notranslate">Unit</code>返回类型也不能省略。</li>
+</ul>
+<p>我们可以像下面这样编写：</p>
+<div class="highlight highlight-source-kotlin"><pre class="notranslate"><span class="pl-c"><span class="pl-c">//</span>典型的函数类型 (参数...) -&gt; 类型  小括号中间是一个剪头一样的符号，然后最后是返回类型</span>
+<span class="pl-k">var</span> func0<span class="pl-k">:</span> (<span class="pl-c1">Int</span>) <span class="pl-k">-&gt;</span> <span class="pl-c1">Unit</span>  <span class="pl-c"><span class="pl-c">//</span>这里的 (Int) -&gt; Unit 表示这个变量存储的是一个有一个int参数并且没有返回值的函数</span>
+<span class="pl-k">var</span> func1<span class="pl-k">:</span> (<span class="pl-c1">Double</span>, <span class="pl-c1">Double</span>) <span class="pl-k">-&gt;</span> <span class="pl-c1">String</span>   <span class="pl-c"><span class="pl-c">//</span>同理，代表两个Double参数返回String类型的函数</span></pre></div>
+<p>同样的，作为函数的参数也可以像这样表示：</p>
+<div class="highlight highlight-source-kotlin"><pre class="notranslate"><span class="pl-k">fun</span> <span class="pl-en">test</span>(<span class="pl-smi">other</span><span class="pl-k">:</span> (<span class="pl-c1">Int</span>) <span class="pl-k">-&gt;</span> <span class="pl-c1">String</span>){
+}</pre></div>
+<p>函数类型的变量，我们可以将其当做一个普通的函数进行调用：</p>
+<div class="highlight highlight-source-kotlin"><pre class="notranslate"><span class="pl-k">fun</span> <span class="pl-en">test</span>(<span class="pl-smi">other</span><span class="pl-k">:</span> (<span class="pl-c1">Int</span>) <span class="pl-k">-&gt;</span> <span class="pl-c1">String</span>){
+    <span class="pl-c1">println</span>(other(<span class="pl-c1">1</span>))  <span class="pl-c"><span class="pl-c">//</span>这里提供的函数接受一个Int参数返回string，那么我们可以像普通函数一样传入参数调用它</span>
+}</pre></div>
+<p>由于函数可以接受函数作为参数，所以说你看到这样的套娃场景也不奇怪：</p>
+<div class="highlight highlight-source-kotlin"><pre class="notranslate"><span class="pl-k">var</span> func<span class="pl-k">:</span> (<span class="pl-c1">Int</span>) <span class="pl-k">-&gt;</span> ((<span class="pl-c1">String</span>) <span class="pl-k">-&gt;</span> <span class="pl-c1">Double</span>)</pre></div>
+<p>不过这样写可能有些时候不太优雅，我们可以为类型起别名来缩短名称：</p>
+<div class="highlight highlight-source-kotlin"><pre class="notranslate"><span class="pl-k">typealias</span> <span class="pl-en">HelloWorld</span> <span class="pl-k">=</span> (<span class="pl-c1">String</span>) <span class="pl-k">-&gt;</span> <span class="pl-c1">Double</span>
+<span class="pl-k">fun</span> <span class="pl-en">main</span>() {
+    <span class="pl-k">var</span> func<span class="pl-k">:</span> <span class="pl-en">HelloWorld</span>
+}</pre></div>
+<h5>【下】</h5>
+<p>可以使用Lambda表达式来表示一个函数实例：</p>
+<div class="highlight highlight-source-kotlin"><pre class="notranslate"><span class="pl-k">fun</span> <span class="pl-en">main</span>() {
+    <span class="pl-k">var</span> func<span class="pl-k">:</span> (<span class="pl-c1">String</span>) <span class="pl-k">-&gt;</span> <span class="pl-c1">Int</span> <span class="pl-k">=</span> {  <span class="pl-c"><span class="pl-c">//</span>一个Lambda表达式只需要直接在花括号中编写函数体即可</span>
+        <span class="pl-c1">println</span>(<span class="pl-s"><span class="pl-pds">"</span>这是传入的参数<span class="pl-e">$it</span><span class="pl-pds">"</span></span>)   <span class="pl-c"><span class="pl-c">//</span>默认情况下，如果函数只有一个参数，我们可以使用it代表传入的参数</span>
+        <span class="pl-c1">666</span>   <span class="pl-c"><span class="pl-c">//</span>跟之前的if表达式一样，默认最后一行为返回值</span>
+    }
+  	func(<span class="pl-s"><span class="pl-pds">"</span>HelloWorld!<span class="pl-pds">"</span></span>)
+}</pre></div>
+<p>是不是感觉特别简便？</p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/88ee2af2-425c-49f1-9b31-dfff0328b522"><img width="746" alt="fsxB2UhpXZewk4Q" src="https://github.com/user-attachments/assets/88ee2af2-425c-49f1-9b31-dfff0328b522" style="max-width: 100%;"></a></p>
+<p>对于参数有多个的情况，我们也可以这样进行编写：</p>
+<div class="highlight highlight-source-kotlin"><pre class="notranslate"><span class="pl-k">fun</span> <span class="pl-en">main</span>() {
+    <span class="pl-k">val</span> func<span class="pl-k">:</span> (<span class="pl-c1">String</span>, <span class="pl-c1">String</span>) <span class="pl-k">-&gt;</span> <span class="pl-c1">Unit</span> <span class="pl-k">=</span> { a, b <span class="pl-k">-&gt;</span>   <span class="pl-c"><span class="pl-c">//</span>我们需要手动添加两个参数这里的形参名称，不然没法用他两</span>
+        <span class="pl-c1">println</span>(<span class="pl-s"><span class="pl-pds">"</span>这是传入的参数<span class="pl-e">$a</span>, 第二个参数<span class="pl-e">$b</span><span class="pl-pds">"</span></span>)   <span class="pl-c"><span class="pl-c">//</span>直接使用上面的形参即可</span>
+    }
+  	<span class="pl-k">val</span> func2<span class="pl-k">:</span> (<span class="pl-c1">String</span>, <span class="pl-c1">String</span>) <span class="pl-k">-&gt;</span> <span class="pl-c1">Unit</span> <span class="pl-k">=</span> { _, b <span class="pl-k">-&gt;</span>
+        <span class="pl-c1">println</span>(<span class="pl-s"><span class="pl-pds">"</span>这是传入的第二个参数<span class="pl-e">$b</span><span class="pl-pds">"</span></span>)   <span class="pl-c"><span class="pl-c">//</span>假如这里不使用第一个参数，也可以使用_下划线来表示不使用</span>
+    }
+    func(<span class="pl-s"><span class="pl-pds">"</span>Hello<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>World<span class="pl-pds">"</span></span>)
+}</pre></div>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/55b2db14-d92e-46ee-b70b-47ce47c48751"><img width="823" alt="R9WjhIUinaP465p" src="https://github.com/user-attachments/assets/55b2db14-d92e-46ee-b70b-47ce47c48751" style="max-width: 100%;"></a></p>
+<p>是不是感觉玩的非常高级？还有更高级的在后面呢！</p>
+<p>我们接着来看，如果我们现在想要调用一个高阶函数，最直接的方式就是下面这样：</p>
+<div class="highlight highlight-source-kotlin"><pre class="notranslate"><span class="pl-k">fun</span> <span class="pl-en">main</span>() {
+    <span class="pl-k">val</span> func<span class="pl-k">:</span> (<span class="pl-c1">Int</span>) <span class="pl-k">-&gt;</span> <span class="pl-c1">String</span> <span class="pl-k">=</span> { <span class="pl-s"><span class="pl-pds">"</span>收到的参数为<span class="pl-e">$it</span><span class="pl-pds">"</span></span> }
+    test(func)
+}
+
+<span class="pl-k">fun</span> <span class="pl-en">test</span>(<span class="pl-smi">func</span><span class="pl-k">:</span> (<span class="pl-c1">Int</span>) <span class="pl-k">-&gt;</span> <span class="pl-c1">String</span>) {
+    <span class="pl-c1">println</span>(func(<span class="pl-c1">66</span>))
+}</pre></div>
+<p>当然我们也可以直接把一个Lambda作为参数传入作为实际参数使用：</p>
+<div class="highlight highlight-source-kotlin"><pre class="notranslate"><span class="pl-k">fun</span> <span class="pl-en">main</span>() {
+    test({ <span class="pl-s"><span class="pl-pds">"</span>收到的参数为<span class="pl-e">$it</span><span class="pl-pds">"</span></span> })
+}</pre></div>
+<p>不过这样还不够简洁，在Kotlin中，如果函数的最后一个形式参数是一个函数类型，可以直接写在括号后面，就像下面这样：</p>
+<div class="highlight highlight-source-kotlin"><pre class="notranslate">test() { <span class="pl-s"><span class="pl-pds">"</span>收到的参数为<span class="pl-e">$it</span><span class="pl-pds">"</span></span> }</pre></div>
+<p>由于小括号里面此时没有其他参数了，还能继续省，直接把小括号也给干掉：</p>
+<div class="highlight highlight-source-kotlin"><pre class="notranslate">test { <span class="pl-s"><span class="pl-pds">"</span>收到的参数为<span class="pl-e">$it</span><span class="pl-pds">"</span></span> }   <span class="pl-c"><span class="pl-c">//</span>干脆连小括号都省了，这语法真的绝</span></pre></div>
+<p>当然，如果在这之前有其他的参数，只能写成这样了：</p>
+<div class="highlight highlight-source-kotlin"><pre class="notranslate"><span class="pl-k">fun</span> <span class="pl-en">main</span>() {
+    test(<span class="pl-c1">1</span>) { <span class="pl-s"><span class="pl-pds">"</span>收到的参数为<span class="pl-e">$it</span><span class="pl-pds">"</span></span> }
+}
+
+<span class="pl-c"><span class="pl-c">//</span>这里两个参数，前面还有一个int类型参数，但是同样的最后一个参数是函数类型</span>
+<span class="pl-k">fun</span> <span class="pl-en">test</span>(<span class="pl-smi">i</span><span class="pl-k">:</span> <span class="pl-c1">Int</span>, <span class="pl-smi">func</span><span class="pl-k">:</span> (<span class="pl-c1">Int</span>) <span class="pl-k">-&gt;</span> <span class="pl-c1">String</span>) {
+    <span class="pl-c1">println</span>(func(<span class="pl-c1">66</span>))
+}</pre></div>
+<p>这种语法也被称为 尾随lambda表达式，能省的东西都省了，不过只有在最后一个参数是函数类型的情况下才可以，如果不是最后一位，就没办法做到尾随了。</p>
+<p>最后需要特别注意的是，在Lambda中没有办法直接使用<code class="notranslate">return</code>语句返回结果，而是需要用到之前我们学习流程控制时用到的标签：</p>
+<div class="highlight highlight-source-kotlin"><pre class="notranslate"><span class="pl-k">fun</span> <span class="pl-en">main</span>() {
+    <span class="pl-k">val</span> func<span class="pl-k">:</span> (<span class="pl-c1">Int</span>) <span class="pl-k">-&gt;</span> <span class="pl-c1">String</span> <span class="pl-k">=</span> test@{
+        <span class="pl-c"><span class="pl-c">//</span>比如这里判断到it大于10就提前返回结果</span>
+        <span class="pl-k">if</span>(it <span class="pl-k">&gt;</span> <span class="pl-c1">10</span>) <span class="pl-k">return</span>@test <span class="pl-s"><span class="pl-pds">"</span>我是提前返回的结果<span class="pl-pds">"</span></span>
+        <span class="pl-c1">println</span>(<span class="pl-s"><span class="pl-pds">"</span>我是正常情况<span class="pl-pds">"</span></span>)
+        <span class="pl-s"><span class="pl-pds">"</span>收到的参数为<span class="pl-e">$it</span><span class="pl-pds">"</span></span>
+    }
+    test(func)
+}
+
+<span class="pl-k">fun</span> <span class="pl-en">test</span>(<span class="pl-smi">func</span><span class="pl-k">:</span> (<span class="pl-c1">Int</span>) <span class="pl-k">-&gt;</span> <span class="pl-c1">String</span>) {
+    <span class="pl-c1">println</span>(func(<span class="pl-c1">66</span>))
+}</pre></div>
+<p>如果是函数调用的尾随lambda表达式，默认的标签名字就是函数的名字：</p>
+<div class="highlight highlight-source-kotlin"><pre class="notranslate"><span class="pl-k">fun</span> <span class="pl-en">main</span>() {
+    testName {  <span class="pl-c"><span class="pl-c">//</span>默认使用函数名称</span>
+        <span class="pl-k">if</span>(it <span class="pl-k">&gt;</span> <span class="pl-c1">10</span>) <span class="pl-k">return</span>@testName <span class="pl-s"><span class="pl-pds">"</span>我是提前返回的结果<span class="pl-pds">"</span></span>
+        <span class="pl-c1">println</span>(<span class="pl-s"><span class="pl-pds">"</span>我是正常情况<span class="pl-pds">"</span></span>)
+        <span class="pl-s"><span class="pl-pds">"</span>收到的参数为<span class="pl-e">$it</span><span class="pl-pds">"</span></span>
+    }
+}
+
+<span class="pl-k">fun</span> <span class="pl-en">testName</span>(<span class="pl-smi">func</span><span class="pl-k">:</span> (<span class="pl-c1">Int</span>) <span class="pl-k">-&gt;</span> <span class="pl-c1">String</span>) {
+    <span class="pl-c1">println</span>(func(<span class="pl-c1">66</span>))
+}</pre></div>
+<p>不过，为什么要这么麻烦呢，还要打标签才能返回，这不多此一举么？这个问题我们会在下一节内联函数中进行讲解。</p>
+<h4>4.内联函数</h4>
+<p>使用高阶函数会可能会影响运行时的性能：每个函数都是一个对象，而且函数内可以访问一些局部变量，但是这可能会在内存分配（用于函数对象和类）和虚拟调用时造成额外开销。</p>
+<p>为了优化性能，开销可以通过内联Lambda表达式来消除。使用<code class="notranslate">inline</code>关键字会影响函数本身和传递给它的lambdas，它能够让方法的调用在编译时，直接替换为方法的执行代码，什么意思呢？比如下面这段代码：</p>
+<div class="highlight highlight-source-kotlin"><pre class="notranslate"><span class="pl-k">fun</span> <span class="pl-en">main</span>() {
+    test()
+}
+
+<span class="pl-c"><span class="pl-c">//</span>添加inline表示内联函数</span>
+<span class="pl-k">inline</span> <span class="pl-k">fun</span> <span class="pl-en">test</span>(){
+    <span class="pl-c1">println</span>(<span class="pl-s"><span class="pl-pds">"</span>这是一个内联函数<span class="pl-pds">"</span></span>)
+  	<span class="pl-c1">println</span>(<span class="pl-s"><span class="pl-pds">"</span>这是一个内联函数<span class="pl-pds">"</span></span>)
+  	<span class="pl-c1">println</span>(<span class="pl-s"><span class="pl-pds">"</span>这是一个内联函数<span class="pl-pds">"</span></span>)
+}</pre></div>
+<p>由于test函数是内联函数，在编译之后，会原封不动地把代码搬过去：</p>
+<div class="highlight highlight-source-kotlin"><pre class="notranslate"><span class="pl-k">fun</span> <span class="pl-en">main</span>() {
+    <span class="pl-c1">println</span>(<span class="pl-s"><span class="pl-pds">"</span>这是一个内联函数<span class="pl-pds">"</span></span>)   <span class="pl-c"><span class="pl-c">//</span>这里是test函数第一行，直接搬过来</span>
+  	<span class="pl-c1">println</span>(<span class="pl-s"><span class="pl-pds">"</span>这是一个内联函数<span class="pl-pds">"</span></span>)
+  	<span class="pl-c1">println</span>(<span class="pl-s"><span class="pl-pds">"</span>这是一个内联函数<span class="pl-pds">"</span></span>)
+}</pre></div>
+<p>同样的，如果是一个高阶函数，效果那就更好了：</p>
+<div class="highlight highlight-source-kotlin"><pre class="notranslate"><span class="pl-k">fun</span> <span class="pl-en">main</span>() {
+    test { <span class="pl-c1">println</span>(<span class="pl-s"><span class="pl-pds">"</span>打印：<span class="pl-e">$it</span><span class="pl-pds">"</span></span>) }
+}
+
+<span class="pl-c"><span class="pl-c">//</span>添加inline表示内联函数</span>
+<span class="pl-k">inline</span> <span class="pl-k">fun</span> <span class="pl-en">test</span>(<span class="pl-smi">func</span><span class="pl-k">:</span> (<span class="pl-c1">String</span>) <span class="pl-k">-&gt;</span> <span class="pl-c1">Unit</span>){
+    <span class="pl-c1">println</span>(<span class="pl-s"><span class="pl-pds">"</span>这是一个内联函数<span class="pl-pds">"</span></span>)
+    func(<span class="pl-s"><span class="pl-pds">"</span>HelloWorld<span class="pl-pds">"</span></span>)
+}</pre></div>
+<p>由于test函数是内联的高阶函数，在编译之后，不仅会原封不动地把代码搬过去，还会自动将传入的函数参数贴到调用的位置：</p>
+<div class="highlight highlight-source-kotlin"><pre class="notranslate"><span class="pl-k">fun</span> <span class="pl-en">main</span>() {
+    <span class="pl-c1">println</span>(<span class="pl-s"><span class="pl-pds">"</span>这是一个内联函数<span class="pl-pds">"</span></span>)   <span class="pl-c"><span class="pl-c">//</span>这里是test函数第一行</span>
+  	<span class="pl-k">val</span> it <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>HelloWorld<span class="pl-pds">"</span></span>  <span class="pl-c"><span class="pl-c">//</span>这里是函数内传入的参数</span>
+    <span class="pl-c1">println</span>(<span class="pl-s"><span class="pl-pds">"</span>打印：<span class="pl-e">$it</span><span class="pl-pds">"</span></span>)  <span class="pl-c"><span class="pl-c">//</span>第二行是调用传入的函数，自动贴过来</span>
+}</pre></div>
+<p>内联会导致编译出来的代码变多，但是同样的换来了性能上的提升，不过这种操作仅对于高阶函数有显著效果，普通函数实际上完全没有内联的必要，也提升不了多少性能。</p>
+<p>注意，内联函数中的函数形参，无法作为值给到变量，只能调用：</p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/87482ee3-8345-4d59-bcf0-81ceee338e9d"><img width="911" alt="ufLoiIyGKTbYV9H" src="https://github.com/user-attachments/assets/87482ee3-8345-4d59-bcf0-81ceee338e9d" style="max-width: 100%;"></a></p>
+<p>同样的，由于内联，导致代码被直接搬运，所以Lambda中的return语句可以不带标签，这种情况会导致直接返回：</p>
+<div class="highlight highlight-source-kotlin"><pre class="notranslate"><span class="pl-k">fun</span> <span class="pl-en">main</span>() {
+    test { <span class="pl-k">return</span> }  <span class="pl-c"><span class="pl-c">//</span>内联高阶函数的Lambda参数可以直接写return不指定标签</span>
+    <span class="pl-c1">println</span>(<span class="pl-s"><span class="pl-pds">"</span>调用上面方法之后<span class="pl-pds">"</span></span>)
+}
+
+<span class="pl-k">inline</span> <span class="pl-k">fun</span> <span class="pl-en">test</span>(<span class="pl-smi">func</span><span class="pl-k">:</span> (<span class="pl-c1">String</span>) <span class="pl-k">-&gt;</span> <span class="pl-c1">Unit</span>){
+    func(<span class="pl-s"><span class="pl-pds">"</span>HelloWorld<span class="pl-pds">"</span></span>)
+    <span class="pl-c1">println</span>(<span class="pl-s"><span class="pl-pds">"</span>调用内联函数之后<span class="pl-pds">"</span></span>)
+}</pre></div>
+<p>上述代码的运行结果就是，直接结束，两句println都不会打印，这种情况被称为<strong>非局部返回</strong>。</p>
+<p>回到上一节最后我们提出的问题，实际上，在Kotlin中Lambda表达式支持一个叫做"标签返回"（labeled return）的特性，这使得你能够从一个Lambda表达式中返回一个值给外围函数，而不是简单地返回给Lambda表达式所在的最近的封闭函数，就像下面这样：</p>
+<div class="highlight highlight-source-kotlin"><pre class="notranslate"><span class="pl-k">fun</span> <span class="pl-en">main</span>() {
+    test { <span class="pl-k">return</span>@main }  <span class="pl-c"><span class="pl-c">//</span>标签可以直接指定为外层函数名称main来提前终止整个外部函数</span>
+    <span class="pl-c1">println</span>(<span class="pl-s"><span class="pl-pds">"</span>调用上面方法之后<span class="pl-pds">"</span></span>)
+}
+
+<span class="pl-k">inline</span> <span class="pl-k">fun</span> <span class="pl-en">test</span>(<span class="pl-smi">func</span><span class="pl-k">:</span> (<span class="pl-c1">String</span>) <span class="pl-k">-&gt;</span> <span class="pl-c1">Unit</span>){
+    func(<span class="pl-s"><span class="pl-pds">"</span>HelloWorld<span class="pl-pds">"</span></span>)
+    <span class="pl-c1">println</span>(<span class="pl-s"><span class="pl-pds">"</span>调用内联函数之后<span class="pl-pds">"</span></span>)
+}</pre></div>
+<p>效果跟上面是完全一样的，为了避免这种情况，我们也可以像之前一样将标签写为<a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/test/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/test">@test</a>来防止非局部返回。</p>
+<div class="highlight highlight-source-kotlin"><pre class="notranslate"><span class="pl-k">fun</span> <span class="pl-en">main</span>() {
+    test { <span class="pl-k">return</span>@test }  <span class="pl-c"><span class="pl-c">//</span>这样就只会使test返回，而不会影响到外部函数了</span>
+    <span class="pl-c1">println</span>(<span class="pl-s"><span class="pl-pds">"</span>调用上面方法之后<span class="pl-pds">"</span></span>)
+}</pre></div>
+<p>有些时候，可能一个内联的高阶函数中存在好几个函数参数，但是我们希望其中的某一个函数参数不使用内联，能够跟之前一样随意当做变量使用：</p>
+<div class="highlight highlight-source-kotlin"><pre class="notranslate"><span class="pl-k">fun</span> <span class="pl-en">main</span>() {
+    test({ <span class="pl-c1">println</span>(<span class="pl-s"><span class="pl-pds">"</span>我是一号：<span class="pl-e">$it</span><span class="pl-pds">"</span></span>) }, { <span class="pl-c1">println</span>(<span class="pl-s"><span class="pl-pds">"</span>我是二号：<span class="pl-e">$it</span><span class="pl-pds">"</span></span>) })
+}
+
+<span class="pl-c"><span class="pl-c">//</span>在不需要内联的函数形参上添加noinline关键字，来防止此函数的调用内联</span>
+<span class="pl-k">inline</span> <span class="pl-k">fun</span> <span class="pl-en">test</span>(<span class="pl-smi">func</span><span class="pl-k">:</span> (<span class="pl-c1">String</span>) <span class="pl-k">-&gt;</span> <span class="pl-c1">Unit</span>, noinline <span class="pl-smi">func2</span><span class="pl-k">:</span> (<span class="pl-c1">Int</span>) <span class="pl-k">-&gt;</span> <span class="pl-c1">Unit</span>){
+    <span class="pl-c1">println</span>(<span class="pl-s"><span class="pl-pds">"</span>这是一个内联函数<span class="pl-pds">"</span></span>)
+    func(<span class="pl-s"><span class="pl-pds">"</span>HelloWorld<span class="pl-pds">"</span></span>)
+  	<span class="pl-k">var</span> a <span class="pl-k">=</span> func2  <span class="pl-c"><span class="pl-c">//</span>这样就不会报错，但是不会内联了</span>
+    func2(<span class="pl-c1">666</span>)
+}</pre></div>
+<p>最后编译出来的结果，类似于：</p>
+<div class="highlight highlight-source-kotlin"><pre class="notranslate"><span class="pl-k">fun</span> <span class="pl-en">main</span>() {
+    <span class="pl-c1">println</span>(<span class="pl-s"><span class="pl-pds">"</span>这是一个内联函数<span class="pl-pds">"</span></span>)
+    <span class="pl-k">val</span> it <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>HelloWorld<span class="pl-pds">"</span></span>
+    <span class="pl-c1">println</span>(<span class="pl-s"><span class="pl-pds">"</span>打印：<span class="pl-e">$it</span><span class="pl-pds">"</span></span>)
+  	<span class="pl-c"><span class="pl-c">//</span>第二个参数由于不是内联，这里依然作为Lambda使用</span>
+    <span class="pl-k">val</span> func2<span class="pl-k">:</span> (<span class="pl-c1">Int</span>) <span class="pl-k">-&gt;</span> <span class="pl-c1">Unit</span> <span class="pl-k">=</span> { <span class="pl-c1">println</span>(<span class="pl-s"><span class="pl-pds">"</span>我是二号：<span class="pl-e">$it</span><span class="pl-pds">"</span></span>) }
+    func2(<span class="pl-c1">666</span>)
+}</pre></div>
+<p>由于目前知识的学习还不太够，函数我们只能先暂时告一段落，在后续的学习中我们会继续认识更多函数的特性。</p>
+<hr>
+<h3>2.类与对象</h3>
+<blockquote>
+<p>类是一个抽象的概念，对象是一个具体的实例，如人类与人。</p>
+</blockquote>
+<h4>类的创建与使用</h4>
+<p>一般类可以单独放在一个.kt文件中，便于管理。</p>
+<ul>
+<li>
+<div class="highlight highlight-source-kotlin"><pre class="notranslate"><span class="pl-c"><span class="pl-c">//</span>如果没有任何可见性修饰符，可以省略constructor关键字，如果类中没有其他内容，可以省去花括号{}</span>
+<span class="pl-k">class</span> <span class="pl-en">Student</span> constructor(<span class="pl-k">var</span> <span class="pl-smi">name</span><span class="pl-k">:</span><span class="pl-c1">String</span>,<span class="pl-k">var</span> <span class="pl-smi">age</span><span class="pl-k">:</span><span class="pl-c1">Int</span>){
+
+}</pre></div>
+</li>
+<li>
+<div class="highlight highlight-source-kotlin"><pre class="notranslate"><span class="pl-c"><span class="pl-c">//</span>也可以这样写，但是需要赋予初始值</span>
+<span class="pl-k">class</span> <span class="pl-en">Student</span> (){
+    <span class="pl-k">var</span> name<span class="pl-k">:</span><span class="pl-c1">String</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span> 
+    <span class="pl-k">var</span> age<span class="pl-k">:</span><span class="pl-c1">Int</span><span class="pl-k">=</span><span class="pl-c1">0</span>
+}</pre></div>
+</li>
+<li>
+<p>可以这样使用：</p>
+<div class="highlight highlight-source-kotlin"><pre class="notranslate"><span class="pl-k">class</span> <span class="pl-en">Student</span> (<span class="pl-k">var</span> <span class="pl-smi">name</span><span class="pl-k">:</span><span class="pl-c1">String</span>,<span class="pl-k">var</span> <span class="pl-smi">age</span><span class="pl-k">:</span><span class="pl-c1">Int</span>)
+<span class="pl-k">fun</span> <span class="pl-en">main</span>() {
+  <span class="pl-k">val</span> stu1 <span class="pl-k">=</span> <span class="pl-en">Student</span>(<span class="pl-s"><span class="pl-pds">"</span>马可波罗<span class="pl-pds">"</span></span>,<span class="pl-c1">18</span>)
+    <span class="pl-c1">println</span>(stu1.name)
+    <span class="pl-c1">println</span>(stu1.age)
+}</pre></div>
+</li>
+<li>
+<p>除了直接使用主构造函数创建对象外，我们也可以添加一些次要构造函数，比如我们的学生可以只需要一个名字就能完成创建，我们可以直接在类中编写一个次要构造函数：</p>
+<div class="highlight highlight-source-kotlin"><pre class="notranslate"><span class="pl-k">class</span> <span class="pl-en">Student</span>(<span class="pl-k">var</span> <span class="pl-smi">name</span><span class="pl-k">:</span> <span class="pl-c1">String</span>, <span class="pl-k">val</span> <span class="pl-smi">age</span><span class="pl-k">:</span> <span class="pl-c1">Int</span>) {
+  	<span class="pl-c"><span class="pl-c">//</span>这里可以使用constructor关键字继续声明次要构造函数</span>
+  	<span class="pl-c"><span class="pl-c">//</span>次要构造函数中的参数仅仅是表示传入的参数，不能像主构造函数那样定义属性</span>
+  	<span class="pl-c"><span class="pl-c">//</span>这里的this表示是当前这个类，this()就是调用当前类的构造函数</span>
+    <span class="pl-en">constructor</span>(name<span class="pl-k">:</span> <span class="pl-c1">String</span>) <span class="pl-k">:</span> <span class="pl-c1">this</span>(name, <span class="pl-c1">18</span>)
+    {<span class="pl-c1">println</span>(<span class="pl-s"><span class="pl-pds">"</span>哈哈我是次要构造函数，只需要一个name值就要可以啦!<span class="pl-pds">"</span></span>)}<span class="pl-c"><span class="pl-c">//</span>这里其实是调用主构造函数，并且参数只有name，年龄直接给个默认值18</span>
+}
+<span class="pl-c"><span class="pl-c">//</span>使用方法：</span>
+<span class="pl-k">fun</span> <span class="pl-en">main</span>() {
+    <span class="pl-c1">println</span>(<span class="pl-en">Student</span>(<span class="pl-s"><span class="pl-pds">"</span>马可波罗<span class="pl-pds">"</span></span>))
+}</pre></div>
+<ul>
+<li><strong>主构造函数：</strong> 可以直接在主构造函数中定义类属性，使用更方便，但是主构造函数只能存在一个，并且无法编写函数体，只有为类属性做初始化赋值的效果。【可以没有主构造函数！】</li>
+<li><strong>辅助（次要）构造函数：</strong> 可以存在多个，并且可以自定义函数体，但是无法像主构造函数那样定义类属性，并且当类具有主构造函数时，所有次要构造函数必须直接或间接地调用主构造函数。</li>
+</ul>
+</li>
+</ul>
+<h4>对象的初始化操作</h4>
+<blockquote>
+<p>在创建对象时候可以执行多个初始化操作</p>
+</blockquote>
+<div class="highlight highlight-source-kotlin"><pre class="notranslate"><span class="pl-k">class</span> <span class="pl-en">Student</span>(<span class="pl-k">var</span> <span class="pl-smi">name</span><span class="pl-k">:</span> <span class="pl-c1">String</span>) {
+    <span class="pl-en">init</span>{
+        <span class="pl-c1">println</span>(<span class="pl-s"><span class="pl-pds">"</span>星光荡开宇宙，本人闪亮登场！<span class="pl-pds">"</span></span>)
+    }
+    <span class="pl-en">init</span> {
+        <span class="pl-c1">println</span>(<span class="pl-s"><span class="pl-pds">"</span>其实后面可以添加跟过init来实现初始化操作！<span class="pl-pds">"</span></span>)
+
+    }    }
+<span class="pl-k">fun</span> <span class="pl-en">main</span>() {
+   <span class="pl-k">val</span> stu1<span class="pl-k">=</span><span class="pl-en">Student</span>(<span class="pl-s"><span class="pl-pds">"</span>东方曜<span class="pl-pds">"</span></span>)
+}</pre></div>
+<p>上面打印结果为：</p>
+<div class="highlight highlight-source-kotlin"><pre class="notranslate">星光荡开宇宙，本人闪亮登场！
+其实后面可以添加跟过<span class="pl-en">init</span>来实现初始化操作！</pre></div>
+<h4>类的成员函数</h4>
+<p>在类中可以定义函数，在其他地方通过 . 调用</p>
+<div class="highlight highlight-source-kotlin"><pre class="notranslate"><span class="pl-k">class</span> <span class="pl-en">Student</span>(<span class="pl-k">var</span> <span class="pl-smi">name</span><span class="pl-k">:</span> <span class="pl-c1">String</span>,<span class="pl-k">var</span> <span class="pl-smi">age</span><span class="pl-k">:</span> <span class="pl-c1">Int</span>) {
+    <span class="pl-k">fun</span> <span class="pl-en">hello</span>(){
+        <span class="pl-c1">println</span>(<span class="pl-s"><span class="pl-pds">"</span>大家好！我叫<span class="pl-e">$name</span>，今年已经<span class="pl-e">${age}</span>岁了!<span class="pl-pds">"</span></span>)
+    }
+}
+<span class="pl-k">fun</span> <span class="pl-en">main</span>() {
+   <span class="pl-k">val</span> stu1<span class="pl-k">=</span><span class="pl-en">Student</span>(<span class="pl-s"><span class="pl-pds">"</span>李信<span class="pl-pds">"</span></span>,<span class="pl-c1">18</span>)
+    stu1.hello()
+}   <span class="pl-c"><span class="pl-c">//</span>打印结果：大家好！我叫李信，今年已经18岁了！</span></pre></div>
+<h4>可见性修饰符</h4>
+<ul>
+<li>public：默认修饰符，声明的内容可以在各个地方引用；</li>
+<li>private：只在当前文件可访问；</li>
+</ul>
+<h3>3.封装，继承和多态</h3>
+<p>封装、继承和多态是面向对象编程的三大特性。</p>
+<blockquote>
+<ul>
+<li>封装，把对象的属性和函数结合成一个独立的整体，隐藏实现细节，并提供对外访问的接口。</li>
+<li>继承，从已知的一个类中派生出一个新的类，叫子类。子类实现了父类所有非私有化的属性和函数，并根据实际需求扩展出新的行为。</li>
+<li>多态，多个不同的对象对同一消息作出响应，同一消息根据不同的对象而采用各种不同的函数。</li>
+</ul>
+</blockquote>
+<p>正是这三大特性，能够让我们的Kotlin程序更加生动形象。</p>
+<h4>类的封装</h4>
+<p>在编写类时一般将成员变量私有化，外部类需要使用Getter和Setter函数来查看和设置变量。</p>
+<p>好处：可以直接省略类内部中如何运算，只定义两个方法，传入数据，获取结果 。</p>
+<p>​			外面直接传入数据就可以获取结果。<br>
+<a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/e8f23980-1037-44b2-a4ee-326897e7fe71"><img src="https://github.com/user-attachments/assets/e8f23980-1037-44b2-a4ee-326897e7fe71" alt="Clip_2024-08-05_16-13-50" style="max-width: 100%;"></a></p>
+<h4>类的继承</h4>
+<p>在类前面加  open   关键字表示可被继承的父类，如</p>
+<pre class="notranslate"><code class="notranslate">
+</code></pre></div>
+<div style="font-size:small;margin-top:8px;float:right;">❤️ 转载文章请注明出处，谢谢！❤️</div>
+
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
+<div class="comments" id="comments"></div>
+
+</div>
+    <div id="footer"><div id="footer1">Copyright © <span id="copyrightYear"></span> <a href="https://7qzwx.github.io/QZWXBlog.github.io">Hello！There are 七种文学のBlog</a></div>
+<div id="footer2">
+    <span id="runday"></span><span>Powered by <a href="https://meekdai.com/Gmeek.html" target="_blank">Gmeek</a></span>
+</div>
+
+<script>
+var now=new Date();
+document.getElementById("copyrightYear").innerHTML=now.getFullYear();
+
+if("07/24/2024"!=""){
+    var startSite=new Date("07/24/2024");
+    var diff=now.getTime()-startSite.getTime();
+    var diffDay=Math.floor(diff/(1000*60*60*24));
+    document.getElementById("runday").innerHTML="网站运行"+diffDay+"天"+" • ";
+}
+</script></div>
+</body>
+<script>
+var IconList={'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'sync': 'M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z'};
+var utterancesLoad=0;
+
+console.log("\n %c Gmeek last https://github.com/Meekdai/Gmeek \n","padding:5px 0;background:#02d81d;color:#fff");
+</script>
+
+<script>
+document.getElementById("pathHome").setAttribute("d",IconList["home"]);
+document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
+
+
+
+function openComments(){
+    cm=document.getElementById("comments");
+    cmButton=document.getElementById("cmButton");
+    cmButton.innerHTML="loading";
+    span=document.createElement("span");
+    span.setAttribute("class","AnimatedEllipsis");
+    cmButton.appendChild(span);
+
+    script=document.createElement("script");
+    script.setAttribute("src","https://utteranc.es/client.js");
+    script.setAttribute("repo","7qzwx/QZWXBlog.github.io");
+    script.setAttribute("issue-term","title");
+    
+    script.setAttribute("theme","github-light");
+    
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async","");
+    cm.appendChild(script);
+
+    int=self.setInterval("iFrameLoading()",200);
+}
+
+function iFrameLoading(){
+    var utterances=document.getElementsByClassName('utterances');
+    if(utterances.length==1){
+        if(utterances[0].style.height!=""){
+            utterancesLoad=1;
+            int=window.clearInterval(int);
+            document.getElementById("cmButton").style.display="none";
+            console.log("utterances Load OK");
+        }
+    }
+}
+</script>
+<script src='https://blog.liyifan.xyz/assets/backtotop.js'></script><script src='https://blog.liyifan.xyz/assets/lazyload.js'></script>
+
+</html>
